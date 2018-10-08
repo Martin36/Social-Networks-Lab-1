@@ -88,7 +88,7 @@ function createMusicList(artists) {
 		row.append(nameCell);
 		row.append(dateCell);
 		row.click(function (event) {
-			window.location.href = window.location.origin + "/artist-page.html?artist=" + artist.name.replace(" ", "+");
+			window.location.href = window.location.href + "/artist-page.html?artist=" + artist.name.replace(" ", "+");
 		});
 		artistTable.append(row);
 	});
