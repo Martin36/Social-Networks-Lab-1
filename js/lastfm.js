@@ -44,23 +44,25 @@ function getAuthUser(token) {
 }
 
 function getArtist(artist) {
-	artist = artist.replace(" ", "+");
-	console.log(artist);
-	$.ajax({
-		type: 'POST',
-		url: 'https://ws.audioscrobbler.com/2.0/',
-		data: 'method=artist.getinfo&' +
-			'artist=' + artist + '&' +
-			'api_key=57ee3318536b23ee81d6b27e36997cde&' +
-			'format=json',
-		dataType: 'jsonp',
-		success: function (data) {
-			// Handle success code here
-			console.log(data);
-		},
-		error: function (code, message) {
-			// Handle error here
-		}
+	return new Promise(function (resolve, reject) {
+		artist = artist.replace(" ", "+");
+		$.ajax({
+			type: 'POST',
+			url: 'https://ws.audioscrobbler.com/2.0/',
+			data: 'method=artist.getinfo&' +
+				'artist=' + artist + '&' +
+				'api_key=57ee3318536b23ee81d6b27e36997cde&' +
+				'format=json',
+			dataType: 'jsonp',
+			success: function (data) {
+				// Handle success code here
+				console.log(data);
+				resolve(data);
+			},
+			error: function (code, message) {
+				// Handle error here
+			}
+		});
 	});
 }
 
@@ -68,13 +70,4 @@ function authUser() {
 	console.log("clicked!");
 	var url = "http://www.last.fm/api/auth/?api_key=" + lastfmApiKey;
 	window.location.href = url;
-}
-
-function getUrlVars() {
-	var vars = {};
-	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-		function (m, key, value) {
-			vars[key] = value;
-		});
-	return vars;
 }
