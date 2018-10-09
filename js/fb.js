@@ -9,11 +9,14 @@ function statusChangeCallback(response) {
 	// for FB.getLoginStatus().
 	if (response.status === 'connected') {
 		// Logged into your app and Facebook.
+		$(".fb-login-button").hide();
+		$("#fb-logout").show();
 		testAPI();
 	} else {
 		// The person is not logged into your app or we are unable to tell.
 		document.getElementById('status').innerHTML = 'Please log ' +
 			'into this app.';
+		$(".fb-login-button").show();
 	}
 }
 
@@ -92,4 +95,18 @@ function createMusicList(artists) {
 		});
 		artistTable.append(row);
 	});
+}
+
+function logoutFB() {
+	FB.logout(function () {
+		clearTable();
+		$("#status").html("You are logged out!");
+		$("#fb-logout").hide();
+		$(".fb-login-button").show();
+
+	});
+}
+
+function clearTable() {
+	$("#artist-table tbody").empty();
 }

@@ -24,11 +24,14 @@
 	<!-- Script for lastfm api-->
 	<script src="js/lastfm.js"></script>
 
-	<fb:login-button scope="public_profile,email,music" onlogin="checkLoginState();">
-	</fb:login-button>
+	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
+			 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" 
+			 data-scope="public_profile,email,user_likes,user_friends" data-onlogin="checkLoginState()"></div>
+
+	<button id="fb-logout" onclick="logoutFB()">Logout from FB</button>
 
 	<!--<button id="lastfm-auth" onclick="authUser()">Connect to last.fm</button>-->
-	
+
 	<div id="status">
 	</div>
 
