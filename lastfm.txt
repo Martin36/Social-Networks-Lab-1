@@ -2,3 +2,5 @@ Application name	Martin's app
 API key	0d342a0e38c97664eecfa764f703b1b9
 Shared secret	e7545c38c38ee3a1a36b17d637c69e15
 Registered to	Pewpewz
+
+Youtube api key: AIzaSyCEvx5qdM0hIYCT9YFgBCj1FI2_uDikNQE
