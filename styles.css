@@ -24,3 +24,11 @@
 .youtube-page-container{
 	text-align: center;	
 }
+
+#meditation-button {
+	float:right;	
+}
+
+.button-container {
+	padding: 20px 50px 0 50px;
+}

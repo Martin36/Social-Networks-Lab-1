@@ -24,16 +24,22 @@
 	<!-- Script for lastfm api-->
 	<script src="js/lastfm.js"></script>
 
-	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
-			 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" 
-			 data-scope="public_profile,email,user_likes,user_friends,user_birthday" data-onlogin="checkLoginState()"></div>
+	<div class="button-container">
+		<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
+				 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"
+				 data-scope="public_profile,email,user_likes,user_friends,user_birthday" data-onlogin="checkLoginState()"></div>
+		<button id="fb-logout" onclick="logoutFB()" type="button" class="btn btn-danger">Logout from FB</button>
 
-	<button id="fb-logout" onclick="logoutFB()">Logout from FB</button>
+		<button id="meditation-button" onclick="window.location.href = window.location.href + '/youtube-page.html'" type="button" class="btn btn-warning">I don't like music, I wanna meditate</button>
+
+	</div>
+
 
 	<!--<button id="lastfm-auth" onclick="authUser()">Connect to last.fm</button>-->
 
 	<div id="status">
 	</div>
+
 
 	<div class="center">
 		<h3>Find out more about the artists you listen to</h3>
