@@ -69,9 +69,36 @@ window.fbAsyncInit = function () {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
 	console.log('Welcome!  Fetching your information.... ');
-	FB.api('/me?fields=id,name,music', function (response) {
+	FB.api('/me?fields=id,name,music,friends,birthday,email', function (response) {
 		console.log(response);
 		console.log('Successful login for: ' + response.name);
+
+		//Add the user to the database
+		var names = response.name.split(" ");
+		if (names.length > 2) console.log("You have too many names!");
+		var firstName = names[0];
+		var lastName = names[1];
+		var userInfo = {
+			fbId: response.id,
+			firstName: firstName,
+			lastName: lastName,
+			email: response.email,
+			dateOfBirth: response.birthday
+		};
+
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000/addUser',
+			data: userInfo,
+			success: function (data) {
+				// Handle success code here
+				console.log("User added to database");
+			},
+			error: function (code, message) {
+				// Handle error here
+			}
+		});
+
 		document.getElementById('status').innerHTML =
 			'Thanks for logging in, ' + response.name + '!';
 
