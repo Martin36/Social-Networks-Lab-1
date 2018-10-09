@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="styles.css" />
 
-	<script src="node_modules/crypto-js/crypto-js.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 					integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 					crossorigin="anonymous"></script>
@@ -25,11 +24,14 @@
 	<!-- Script for lastfm api-->
 	<script src="js/lastfm.js"></script>
 
-	<fb:login-button scope="public_profile,email,music" onlogin="checkLoginState();">
-	</fb:login-button>
+	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
+			 data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" 
+			 data-scope="public_profile,email,user_likes,user_friends,user_birthday" data-onlogin="checkLoginState()"></div>
+
+	<button id="fb-logout" onclick="logoutFB()">Logout from FB</button>
 
 	<!--<button id="lastfm-auth" onclick="authUser()">Connect to last.fm</button>-->
-	
+
 	<div id="status">
 	</div>
 

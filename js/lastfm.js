@@ -18,7 +18,6 @@ function getAuthUser(token) {
 	var encodedSignString = encodeURIComponent(signString);
 	var decodedSignString = unescape(encodedSignString);
 	var signHash = CryptoJS.MD5(decodedSignString).toString();
-	console.log(signString);
 
 	var postObj = {
 		method: "auth.getSession",
@@ -34,7 +33,6 @@ function getAuthUser(token) {
 		dataType: 'jsonp',
 		success: function (data) {
 			// Handle success code here
-			console.log(data);
 		},
 		error: function (code, message) {
 			// Handle error here
@@ -56,7 +54,6 @@ function getArtist(artist) {
 			dataType: 'jsonp',
 			success: function (data) {
 				// Handle success code here
-				console.log(data);
 				resolve(data);
 			},
 			error: function (code, message) {
@@ -67,7 +64,6 @@ function getArtist(artist) {
 }
 
 function authUser() {
-	console.log("clicked!");
 	var url = "http://www.last.fm/api/auth/?api_key=" + lastfmApiKey;
 	window.location.href = url;
 }
