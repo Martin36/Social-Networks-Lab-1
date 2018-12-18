@@ -102,6 +102,9 @@ function testAPI() {
 		document.getElementById('status').innerHTML =
 			'Thanks for logging in, ' + response.name + '!';
 
+		document.getElementById('email').innerHTML =
+			'Email: ' + response.email;
+
 		createMusicList(response.music.data);
 
 	});

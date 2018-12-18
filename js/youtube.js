@@ -1,5 +1,5 @@
 // JavaScript source code
-
+//TODO: spara youtube datan i databasen
 function initYoutubeApi() {
 	gapi.client.setApiKey("AIzaSyCEvx5qdM0hIYCT9YFgBCj1FI2_uDikNQE");
 	gapi.client.load("youtube", "v3", function () {
